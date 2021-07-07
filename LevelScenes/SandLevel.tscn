@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://DefaultGodo/icon.png" type="Texture" id=1]
+
+[node name="DefaultScene" type="Node2D"]
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 315.98, 69.0153 )
+scale = Vector2( 2.38227, 0.445437 )
+texture = ExtResource( 1 )

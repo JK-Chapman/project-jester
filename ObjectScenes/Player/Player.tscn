@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Raw assets/Free Mini Characters 2/Fish/fish_sheet.png" type="Texture" id=1]
+[ext_resource path="res://Raw assets/Idle_R.tres" type="Animation" id=2]
+[ext_resource path="res://ObjectScenes/Player/Player.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle_L"
+length = 1.8
+loop = true
+step = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 16, 17, 18, 17, 16, 15 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Walk_L"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 21, 22, 23, 24, 25, 26, 25, 24, 23, 22 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8, 9, 10, 11, 10, 9, 8, 7 ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 11.4282, 15.4996 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle_L = SubResource( 1 )
+anims/Idle_R = ExtResource( 2 )
+anims/Walk_L = SubResource( 2 )
+anims/Walk_R = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.21022, -14.5055 )
+shape = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.21022, -15.977 )
+texture = ExtResource( 1 )
+hframes = 15
+vframes = 2
+frame = 6
