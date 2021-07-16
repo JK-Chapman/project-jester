@@ -5,7 +5,7 @@ extends Node
 # var a = 2
 # var b = "text"
 var camera
-var player = preload("res://ObjectScenes/Player/Player.tscn")
+var player = preload("res://Objects/Player/Player.tscn")
 var num_players_ready = 0
 var centerpos
 var size

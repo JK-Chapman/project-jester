@@ -2,10 +2,16 @@ extends KinematicBody2D
 
 var speed = 150
 var move_dir = Vector2(0, 0)
+
 var anim_dir = "L"
+var anim_mode = "Idle"
+
 var index
 var p_state
-enum state {DEFAULT, NO_MOVEMENT}
+enum state {DEFAULT, MINIGAME_CONTROL}
+
+var punching = false
+var punch_dir
 
 func init(index):
 	self.index = index
@@ -15,12 +21,16 @@ func init(index):
 func _physics_process(delta):
 	if p_state == state.DEFAULT:
 		MovementLoop()
-	pass
+	
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("punch" + str(index)) && !punching:
+		punching = true
+		Attack()
 
 
 func _process(delta):
 	if p_state == state.DEFAULT:
-		MoveAnimationLoop()
+		AnimationLoop()
 	
 
 func MovementLoop():
@@ -29,17 +39,29 @@ func MovementLoop():
 	var motion = move_dir.normalized() * speed
 	move_and_slide(motion)
 
-func MoveAnimationLoop():
+func AnimationLoop():
 	var animation
-	var anim_mode = "Idle"
+	anim_mode = "Idle"
 	
-	if move_dir.x > 0:
-		anim_dir = "R"
-	elif move_dir.x < 0:
-		anim_dir = "L"
-	
-	if move_dir != Vector2(0, 0):
-		anim_mode = "Walk"
+	if punching:
+		if get_node("Sprite").scale.x == 1:
+			anim_dir = "R"
+		elif get_node("Sprite").scale.x == -1:
+			anim_dir = "L"
+		anim_mode = "Punch"
+	else:
+		if move_dir.x > 0:
+			anim_dir = "R"
+		elif move_dir.x < 0:
+			anim_dir = "L"
+			
+		if move_dir != Vector2(0, 0):
+			anim_mode = "Run"
 	
 	animation = anim_mode + "_" + anim_dir
 	get_node("AnimationPlayer").play(animation)
+	
+func Attack():
+	yield(get_tree().create_timer(0.48), "timeout")
+	punching = false
+	anim_mode = "Idle"
