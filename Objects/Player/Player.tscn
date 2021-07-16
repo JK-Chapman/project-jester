@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Objects/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Raw assets/Jester/JesterAnimated.png" type="Texture" id=2]
-[ext_resource path="res://Raw assets/Idle_R.tres" type="Animation" id=3]
+[ext_resource path="res://DefaultGodo/Idle_R.tres" type="Animation" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Idle_L"
@@ -93,9 +93,9 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-length = 1.2
+length = 0.85
 loop = true
-step = 0.2
+step = 0.15
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -103,7 +103,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 11, 12, 13, 14, 15, 16 ]
@@ -123,9 +123,9 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=5]
 resource_name = "Run_R"
-length = 1.2
+length = 0.85
 loop = true
-step = 0.2
+step = 0.15
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -133,7 +133,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.6, 0.75 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 11, 12, 13, 14, 15, 16 ]
@@ -152,8 +152,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=6]
-radius = 11.3619
-height = 23.131
+radius = 8.37908
+height = 0.0
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -169,11 +169,11 @@ anims/Run_L = SubResource( 4 )
 anims/Run_R = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.65617, -4.99184 )
+position = Vector2( 3.15786, 5.85373 )
 shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.21022, -15.977 )
 texture = ExtResource( 2 )
 hframes = 17
-frame = 5
+frame = 11

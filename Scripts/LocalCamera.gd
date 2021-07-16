@@ -5,7 +5,7 @@ var targets = []
 export var move_speed = 0.5
 export var zoom_speed = 0.05
 export var min_zoom = 1.5
-export var max_zoom = 5
+export var max_zoom = 5.0
 export var margin = Vector2(400, 200)
 onready var screen_size = get_viewport_rect().size
 
