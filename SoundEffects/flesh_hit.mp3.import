@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/flesh_hit.mp3-1c003255363dcf5f72eb1ce2793a683d.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/flesh_hit.mp3"
+dest_files=[ "res://.import/flesh_hit.mp3-1c003255363dcf5f72eb1ce2793a683d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

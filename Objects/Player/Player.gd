@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var speed = 150
 var move_dir = Vector2(0, 0)
+var life = 3
 
 var anim_dir = "L"
 var anim_mode = "Idle"
@@ -50,10 +51,15 @@ func AnimationLoop():
 			anim_dir = "L"
 		anim_mode = "Punch"
 	else:
-		if move_dir.x > 0:
-			anim_dir = "R"
-		elif move_dir.x < 0:
-			anim_dir = "L"
+		match move_dir:
+			Vector2(-1, 0):
+				anim_dir = "L"
+			Vector2(1, 0):
+				anim_dir = "R"
+			Vector2(0, 0.5):
+				anim_dir = "D"
+			Vector2(0, -0.5):
+				anim_dir = "U"
 			
 		if move_dir != Vector2(0, 0):
 			anim_mode = "Run"
@@ -65,3 +71,22 @@ func Attack():
 	yield(get_tree().create_timer(0.48), "timeout")
 	punching = false
 	anim_mode = "Idle"
+	
+func take_damage(damage):
+	life -= damage
+	print("DEBUG: Player has taken damage and now has " + str(life) + " life.")
+
+func _on_hurtbox_body_entered(body):
+	if body.is_in_group("Hazard"):
+		take_damage(body.damage)
+		body.destroy()
+
+
+func _on_PunchHitbox_body_entered(body):
+	if body.is_in_group("can_be_deflected"):
+		body.deflect("left")
+
+
+func _on_PunchHitboxRight_body_entered(body):
+	if body.is_in_group("can_be_deflected"):
+		body.deflect("right")

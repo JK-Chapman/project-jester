@@ -14,6 +14,13 @@ func _ready():
 	var text = file.get_as_text()
 	level_dict = parse_json(text)
 	file.close()
+	
+func play_sound(sound):
+	var player = AudioStreamPlayer.new()
+	player.stream = sound
+	player.connect("finished", player, "queue_free")
+	add_child(player)
+	player.play()
 
 func load_random_level(type):
 	randomize()
