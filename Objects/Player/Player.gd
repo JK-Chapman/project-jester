@@ -68,7 +68,7 @@ func AnimationLoop():
 	get_node("AnimationPlayer").play(animation)
 	
 func Attack():
-	yield(get_tree().create_timer(0.48), "timeout")
+	yield(get_tree().create_timer(0.326), "timeout")
 	punching = false
 	anim_mode = "Idle"
 	
