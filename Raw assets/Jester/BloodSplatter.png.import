@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/JesterAnimated.png-9461285164ab42ec72dfddc927375d44.stex"
+path="res://.import/BloodSplatter.png-5126dc0749895171e8c8a625848bfc02.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Raw assets/Jester/JesterAnimated.png"
-dest_files=[ "res://.import/JesterAnimated.png-9461285164ab42ec72dfddc927375d44.stex" ]
+source_file="res://Raw assets/Jester/BloodSplatter.png"
+dest_files=[ "res://.import/BloodSplatter.png-5126dc0749895171e8c8a625848bfc02.stex" ]
 
 [params]
 

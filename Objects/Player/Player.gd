@@ -45,11 +45,8 @@ func AnimationLoop():
 	anim_mode = "Idle"
 	
 	if punching:
-		if get_node("Sprite").scale.x == 1:
-			anim_dir = "R"
-		elif get_node("Sprite").scale.x == -1:
-			anim_dir = "L"
 		anim_mode = "Punch"
+		
 	else:
 		match move_dir:
 			Vector2(-1, 0):
@@ -68,7 +65,7 @@ func AnimationLoop():
 	get_node("AnimationPlayer").play(animation)
 	
 func Attack():
-	yield(get_tree().create_timer(0.326), "timeout")
+	yield(get_tree().create_timer(0.5), "timeout")
 	punching = false
 	anim_mode = "Idle"
 	
@@ -80,6 +77,7 @@ func _on_hurtbox_body_entered(body):
 	if body.is_in_group("Hazard"):
 		take_damage(body.damage)
 		body.destroy()
+		
 
 
 func _on_PunchHitbox_body_entered(body):
@@ -90,3 +88,13 @@ func _on_PunchHitbox_body_entered(body):
 func _on_PunchHitboxRight_body_entered(body):
 	if body.is_in_group("can_be_deflected"):
 		body.deflect("right")
+
+
+func _on_PunchHitboxUp_body_entered(body):
+	if body.is_in_group("can_be_deflected"):
+		body.deflect("up")
+
+
+func _on_PunchHitboxDown_body_entered(body):
+	if body.is_in_group("can_be_deflected"):
+		body.deflect("down")
