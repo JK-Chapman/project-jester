@@ -35,7 +35,19 @@ func deflect(dir):
 		"down":
 			speed += 10
 			velocity = Vector2(speed, 0).rotated(PI/2)
-			
+		"up_left":
+			speed += 10
+			velocity = Vector2(speed, 0).rotated((5 * PI) / 4)
+		"up_right":
+			speed += 10
+			velocity = Vector2(speed, 0).rotated((7 * PI) / 4)
+		"down_left":
+			speed += 10
+			velocity = Vector2(speed, 0).rotated((3 * PI) / 4)
+		"down_right":
+			speed += 10
+			velocity = Vector2(speed, 0).rotated(PI/4)
+
 func destroy():
 	GameManager.play_sound(hit_sound_fx)
 	queue_free()

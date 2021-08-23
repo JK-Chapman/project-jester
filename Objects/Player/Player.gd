@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 150
+var speed = 120
 var move_dir = Vector2(0, 0)
 var life = 3
 
@@ -12,7 +12,8 @@ var p_state
 enum state {DEFAULT, MINIGAME_CONTROL}
 
 var punching = false
-var punch_dir
+var punch_dir = Vector2(0,0)
+var checked_stick = false
 
 func init(index):
 	self.index = index
@@ -24,9 +25,27 @@ func _physics_process(delta):
 		MovementLoop()
 	
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("punch" + str(index)) && !punching:
+	if (!punching) and (Input.is_action_just_pressed("punch_l" + str(index)) || Input.is_action_just_pressed("punch_r" + str(index)) || Input.is_action_just_pressed("punch_u" + str(index)) || Input.is_action_just_pressed("punch_d" + str(index))):
 		punching = true
-		Attack()
+		var x_axis = Input.get_joy_axis(index, JOY_AXIS_2)
+		var y_axis = Input.get_joy_axis(index, JOY_AXIS_3)
+		if abs(x_axis) < 0.15:
+			x_axis = 0
+		elif x_axis < 0:
+			x_axis = floor(x_axis)
+		else:
+			x_axis = ceil(x_axis)
+
+		if abs(y_axis) < 0.15:
+			y_axis = 0
+		elif y_axis < 0:
+			y_axis = floor(y_axis)
+		else:
+			y_axis = ceil(y_axis)
+		punch_dir = Vector2(x_axis, y_axis)
+		if punch_dir != Vector2(0, 0):
+			print(str(punch_dir))
+			Attack()
 
 
 func _process(delta):
@@ -46,7 +65,23 @@ func AnimationLoop():
 	
 	if punching:
 		anim_mode = "Punch"
-		
+		match punch_dir:
+			Vector2(-1, 0):
+				anim_dir = "L"
+			Vector2(1, 0):
+				anim_dir = "R"
+			Vector2(0, 1):
+				anim_dir = "D"
+			Vector2(0, -1):
+				anim_dir = "U"
+			Vector2(-1, -1):
+				anim_dir = "UL"
+			Vector2(-1, 1):
+				anim_dir = "DL"
+			Vector2(1, -1):
+				anim_dir = "UR"
+			Vector2(1, 1):
+				anim_dir = "DR"
 	else:
 		match move_dir:
 			Vector2(-1, 0):
@@ -57,6 +92,14 @@ func AnimationLoop():
 				anim_dir = "D"
 			Vector2(0, -0.5):
 				anim_dir = "U"
+			Vector2(-1, -0.5):
+				anim_dir = "UL"
+			Vector2(-1, 0.5):
+				anim_dir = "DL"
+			Vector2(1, -0.5):
+				anim_dir = "UR"
+			Vector2(1, 0.5):
+				anim_dir = "DR"
 			
 		if move_dir != Vector2(0, 0):
 			anim_mode = "Run"
@@ -77,8 +120,6 @@ func _on_hurtbox_body_entered(body):
 	if body.is_in_group("Hazard"):
 		take_damage(body.damage)
 		body.destroy()
-		
-
 
 func _on_PunchHitbox_body_entered(body):
 	if body.is_in_group("can_be_deflected"):
@@ -98,3 +139,23 @@ func _on_PunchHitboxUp_body_entered(body):
 func _on_PunchHitboxDown_body_entered(body):
 	if body.is_in_group("can_be_deflected"):
 		body.deflect("down")
+
+
+func _on_PunchHitboxUpLeft_body_entered(body):
+	if body.is_in_group("can_be_deflected"):
+		body.deflect("up_left")
+
+
+func _on_PunchHitboxUpRight_body_entered(body):
+	if body.is_in_group("can_be_deflected"):
+		body.deflect("up_right")
+
+
+func _on_PunchHitboxDownLeft_body_entered(body):
+	if body.is_in_group("can_be_deflected"):
+		body.deflect("down_left")
+
+
+func _on_PunchHitboxDownRight_body_entered(body):
+	if body.is_in_group("can_be_deflected"):
+		body.deflect("down_right")
