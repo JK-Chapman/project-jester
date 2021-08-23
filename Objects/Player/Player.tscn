@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Objects/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Raw assets/Jester/JesterMoveset.png" type="Texture" id=2]
@@ -50,7 +50,7 @@ tracks/0/keys = {
 "values": [ 18, 19, 20, 21 ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=3]
 resource_name = "Idle_DL"
 length = 0.8
 loop = true
@@ -68,7 +68,7 @@ tracks/0/keys = {
 "values": [ 18, 19, 20, 21 ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=4]
 resource_name = "Idle_DR"
 length = 0.8
 loop = true
@@ -86,7 +86,7 @@ tracks/0/keys = {
 "values": [ 18, 19, 20, 21 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 0.8
 loop = true
 step = 0.2
@@ -102,20 +102,8 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 10, 11, 12, 13 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 0.8
 loop = true
 step = 0.2
@@ -132,7 +120,7 @@ tracks/0/keys = {
 "values": [ 14, 15, 16, 17 ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=7]
 resource_name = "Idle_UL"
 length = 0.8
 loop = true
@@ -150,7 +138,7 @@ tracks/0/keys = {
 "values": [ 14, 15, 16, 17 ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=8]
 resource_name = "Idle_UR"
 length = 0.8
 loop = true
@@ -168,8 +156,7 @@ tracks/0/keys = {
 "values": [ 14, 15, 16, 17 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Punch_D"
+[sub_resource type="Animation" id=9]
 length = 0.5
 step = 0.08
 tracks/0/type = "value"
@@ -185,31 +172,19 @@ tracks/0/keys = {
 "values": [ 50, 51, 52, 53 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
+tracks/1/path = NodePath("PunchHitboxDown/punch_down:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PunchHitboxDown/punch_down:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.16 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=10]
 resource_name = "Punch_DL"
 length = 0.5
 step = 0.08
@@ -226,31 +201,19 @@ tracks/0/keys = {
 "values": [ 50, 51, 52, 53 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
+tracks/1/path = NodePath("PunchHitboxDownLeft/punch_down_l:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PunchHitboxDownLeft/punch_down_l:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.16 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=11]
 resource_name = "Punch_DR"
 length = 0.5
 step = 0.08
@@ -267,31 +230,19 @@ tracks/0/keys = {
 "values": [ 50, 51, 52, 53 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
+tracks/1/path = NodePath("PunchHitboxDownRight/punch_down_r:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PunchHitboxDownRight/punch_down_r:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.16 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=12]
 length = 0.5
 step = 0.08
 tracks/0/type = "value"
@@ -307,31 +258,19 @@ tracks/0/keys = {
 "values": [ 42, 43, 44, 45 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
+tracks/1/path = NodePath("PunchHitboxLeft/punch_left:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PunchHitboxLeft/punch_left:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.16 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=13]
 length = 0.5
 step = 0.08
 tracks/0/type = "value"
@@ -347,32 +286,19 @@ tracks/0/keys = {
 "values": [ 38, 39, 40, 41 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
+tracks/1/path = NodePath("PunchHitboxRight/punch_right:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PunchHitboxRight/punch_right:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.16 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Punch_U"
+[sub_resource type="Animation" id=14]
 length = 0.5
 step = 0.08
 tracks/0/type = "value"
@@ -406,13 +332,13 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.16 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=15]
 resource_name = "Punch_UL"
 length = 0.5
 step = 0.08
@@ -429,31 +355,19 @@ tracks/0/keys = {
 "values": [ 46, 47, 48, 49 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
+tracks/1/path = NodePath("PunchHitboxUpLeft/punch_up_l:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PunchHitboxUpLeft/punch_up_l:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.16 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=16]
 resource_name = "Punch_UR"
 length = 0.5
 step = 0.08
@@ -470,31 +384,19 @@ tracks/0/keys = {
 "values": [ 46, 47, 48, 49 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
+tracks/1/path = NodePath("PunchHitboxUpRight/punch_up_r:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PunchHitboxUpRight/punch_up_r:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.16 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=17]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -510,7 +412,7 @@ tracks/0/keys = {
 "values": [ 34, 35, 36, 37 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=18]
 resource_name = "Run_DL"
 length = 0.4
 loop = true
@@ -527,7 +429,7 @@ tracks/0/keys = {
 "values": [ 34, 35, 36, 37 ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=19]
 resource_name = "Run_DR"
 length = 0.4
 loop = true
@@ -544,7 +446,7 @@ tracks/0/keys = {
 "values": [ 34, 35, 36, 37 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=20]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -559,20 +461,8 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 26, 27, 28, 29 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=21]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -587,20 +477,8 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 22, 23, 24, 25 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=22]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -616,7 +494,7 @@ tracks/0/keys = {
 "values": [ 30, 31, 32, 33 ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=23]
 resource_name = "Run_UL"
 length = 0.4
 loop = true
@@ -633,7 +511,7 @@ tracks/0/keys = {
 "values": [ 30, 31, 32, 33 ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=24]
 resource_name = "Run_UR"
 length = 0.4
 loop = true
@@ -650,22 +528,30 @@ tracks/0/keys = {
 "values": [ 30, 31, 32, 33 ]
 }
 
-[sub_resource type="CapsuleShape2D" id=13]
+[sub_resource type="CapsuleShape2D" id=25]
 radius = 3.92818
 height = 2.90912
 
-[sub_resource type="CapsuleShape2D" id=14]
+[sub_resource type="CapsuleShape2D" id=26]
 radius = 1.54249
 height = 8.93091
 
-[sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 4.48042, 3.37239 )
+[sub_resource type="CircleShape2D" id=27]
+radius = 7.88776
 
-[sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 4.39468, 3.65199 )
+[sub_resource type="CircleShape2D" id=28]
 
-[sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 3.96164, 3.7119 )
+[sub_resource type="CircleShape2D" id=29]
+
+[sub_resource type="CircleShape2D" id=30]
+
+[sub_resource type="CircleShape2D" id=31]
+
+[sub_resource type="CircleShape2D" id=32]
+
+[sub_resource type="CircleShape2D" id=33]
+
+[sub_resource type="CircleShape2D" id=34]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -676,35 +562,35 @@ script = ExtResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Dash_L = SubResource( 1 )
 anims/Idle_D = SubResource( 2 )
-anims/Idle_DL = SubResource( 22 )
-anims/Idle_DR = SubResource( 23 )
-anims/Idle_L = SubResource( 3 )
+anims/Idle_DL = SubResource( 3 )
+anims/Idle_DR = SubResource( 4 )
+anims/Idle_L = SubResource( 5 )
 anims/Idle_R = ExtResource( 3 )
-anims/Idle_U = SubResource( 4 )
-anims/Idle_UL = SubResource( 28 )
-anims/Idle_UR = SubResource( 29 )
-anims/Punch_D = SubResource( 5 )
-anims/Punch_DL = SubResource( 19 )
-anims/Punch_DR = SubResource( 18 )
-anims/Punch_L = SubResource( 6 )
-anims/Punch_R = SubResource( 7 )
-anims/Punch_U = SubResource( 8 )
-anims/Punch_UL = SubResource( 21 )
-anims/Punch_UR = SubResource( 20 )
-anims/Run_D = SubResource( 9 )
-anims/Run_DL = SubResource( 24 )
-anims/Run_DR = SubResource( 25 )
-anims/Run_L = SubResource( 10 )
-anims/Run_R = SubResource( 11 )
-anims/Run_U = SubResource( 12 )
-anims/Run_UL = SubResource( 26 )
-anims/Run_UR = SubResource( 27 )
+anims/Idle_U = SubResource( 6 )
+anims/Idle_UL = SubResource( 7 )
+anims/Idle_UR = SubResource( 8 )
+anims/Punch_D = SubResource( 9 )
+anims/Punch_DL = SubResource( 10 )
+anims/Punch_DR = SubResource( 11 )
+anims/Punch_L = SubResource( 12 )
+anims/Punch_R = SubResource( 13 )
+anims/Punch_U = SubResource( 14 )
+anims/Punch_UL = SubResource( 15 )
+anims/Punch_UR = SubResource( 16 )
+anims/Run_D = SubResource( 17 )
+anims/Run_DL = SubResource( 18 )
+anims/Run_DR = SubResource( 19 )
+anims/Run_L = SubResource( 20 )
+anims/Run_R = SubResource( 21 )
+anims/Run_U = SubResource( 22 )
+anims/Run_UL = SubResource( 23 )
+anims/Run_UR = SubResource( 24 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.21022, -15.977 )
 texture = ExtResource( 2 )
 hframes = 54
-frame = 46
+frame = 28
 
 [node name="hurtbox" type="Area2D" parent="Sprite" groups=[
 "Player",
@@ -716,13 +602,12 @@ scale = Vector2( 1, -1 )
 
 [node name="hurtbox_shape" type="CollisionShape2D" parent="Sprite/hurtbox"]
 position = Vector2( 1.77017, -14.752 )
-shape = SubResource( 13 )
-disabled = true
+shape = SubResource( 25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.77924, -8.57448 )
 rotation = 1.5708
-shape = SubResource( 14 )
+shape = SubResource( 26 )
 
 [node name="PunchHitboxLeft" type="Area2D" parent="." groups=[
 "Player_Punch",
@@ -735,7 +620,8 @@ collision_mask = 2
 [node name="punch_left" type="CollisionShape2D" parent="PunchHitboxLeft"]
 position = Vector2( 10.5498, -13.1803 )
 rotation = 2.53518e-06
-shape = SubResource( 15 )
+scale = Vector2( 0.790699, 1.44 )
+shape = SubResource( 27 )
 disabled = true
 
 [node name="PunchHitboxRight" type="Area2D" parent="." groups=[
@@ -747,9 +633,10 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="punch_right" type="CollisionShape2D" parent="PunchHitboxRight"]
-position = Vector2( 7.31142, -13.0455 )
+position = Vector2( 8.49747, -13.1941 )
 rotation = 2.53518e-06
-shape = SubResource( 15 )
+scale = Vector2( 0.599716, 1.10774 )
+shape = SubResource( 28 )
 disabled = true
 
 [node name="PunchHitboxUp" type="Area2D" parent="." groups=[
@@ -759,8 +646,9 @@ position = Vector2( 0.148651, 25.568 )
 scale = Vector2( 1, 2.12 )
 
 [node name="punch_up" type="CollisionShape2D" parent="PunchHitboxUp"]
-position = Vector2( -1.49617, -23.6611 )
-shape = SubResource( 16 )
+position = Vector2( -1.19887, -24.5726 )
+scale = Vector2( 1.10612, 0.500105 )
+shape = SubResource( 29 )
 disabled = true
 
 [node name="PunchHitboxDown" type="Area2D" parent="." groups=[
@@ -770,8 +658,9 @@ position = Vector2( 0, 7.87849 )
 scale = Vector2( 1.06558, 1.89597 )
 
 [node name="punch_down" type="CollisionShape2D" parent="PunchHitboxDown"]
-position = Vector2( -1.25931, -6.05385 )
-shape = SubResource( 17 )
+position = Vector2( -1.39881, -5.42662 )
+scale = Vector2( 1, 0.578052 )
+shape = SubResource( 30 )
 disabled = true
 
 [node name="PunchHitboxUpLeft" type="Area2D" parent="." groups=[
@@ -784,9 +673,10 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="punch_up_l" type="CollisionShape2D" parent="PunchHitboxUpLeft"]
-position = Vector2( 0.103072, 0.200891 )
+position = Vector2( 2.03737, -1.51118 )
 rotation = 2.53518e-06
-shape = SubResource( 15 )
+scale = Vector2( 0.724363, 1.07837 )
+shape = SubResource( 31 )
 disabled = true
 
 [node name="PunchHitboxUpRight" type="Area2D" parent="." groups=[
@@ -799,9 +689,10 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="punch_up_r" type="CollisionShape2D" parent="PunchHitboxUpRight"]
-position = Vector2( 0.103072, 0.200891 )
+position = Vector2( -1.83113, -0.451097 )
 rotation = 2.53518e-06
-shape = SubResource( 15 )
+scale = Vector2( 0.644561, 0.942261 )
+shape = SubResource( 32 )
 disabled = true
 
 [node name="PunchHitboxDownLeft" type="Area2D" parent="." groups=[
@@ -814,9 +705,10 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="punch_down_l" type="CollisionShape2D" parent="PunchHitboxDownLeft"]
-position = Vector2( 0.103072, 0.200891 )
+position = Vector2( 0.422696, 1.90555 )
 rotation = 2.53518e-06
-shape = SubResource( 15 )
+scale = Vector2( 0.5702, 1.06545 )
+shape = SubResource( 33 )
 disabled = true
 
 [node name="PunchHitboxDownRight" type="Area2D" parent="." groups=[
@@ -829,9 +721,10 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="punch_down_r" type="CollisionShape2D" parent="PunchHitboxDownRight"]
-position = Vector2( 0.103072, 0.200891 )
+position = Vector2( -0.581843, 1.3866 )
 rotation = 2.53518e-06
-shape = SubResource( 15 )
+scale = Vector2( 0.566904, 0.916473 )
+shape = SubResource( 34 )
 disabled = true
 
 [connection signal="body_entered" from="Sprite/hurtbox" to="." method="_on_hurtbox_body_entered"]

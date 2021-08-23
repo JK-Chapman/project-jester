@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 120
+var speed = 150
 var move_dir = Vector2(0, 0)
 var life = 3
 
@@ -29,14 +29,14 @@ func _unhandled_input(event):
 		punching = true
 		var x_axis = Input.get_joy_axis(index, JOY_AXIS_2)
 		var y_axis = Input.get_joy_axis(index, JOY_AXIS_3)
-		if abs(x_axis) < 0.15:
+		if abs(x_axis) < 0.28:
 			x_axis = 0
 		elif x_axis < 0:
 			x_axis = floor(x_axis)
 		else:
 			x_axis = ceil(x_axis)
 
-		if abs(y_axis) < 0.15:
+		if abs(y_axis) < 0.28:
 			y_axis = 0
 		elif y_axis < 0:
 			y_axis = floor(y_axis)

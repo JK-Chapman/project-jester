@@ -5,7 +5,8 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 var damage = 1
-var speed = 10
+var speed = 150
+var max_speed = 250
 var velocity = Vector2()
 var hit_sound_fx = load("res://SoundEffects/flesh_hit.mp3")
 
@@ -13,7 +14,7 @@ var hit_sound_fx = load("res://SoundEffects/flesh_hit.mp3")
 func start(pos, dir):
 	rotation = dir
 	position = pos
-	speed = rand_range(30, 70)
+	speed = rand_range(100, 150)
 	velocity = Vector2(speed, 0).rotated(rotation)
 
 func _physics_process(delta):
@@ -22,30 +23,24 @@ func _physics_process(delta):
 		velocity = velocity.bounce(collision.normal)
 		
 func deflect(dir):
+	speed *= 1.2
+	if speed > max_speed: speed = max_speed
 	match dir:
 		"left":
-			speed += 10
 			velocity = Vector2(speed, 0).rotated(PI)
 		"right":
-			speed += 10
 			velocity = Vector2(speed, 0).rotated(0)
 		"up":
-			speed += 10
 			velocity = Vector2(speed, 0).rotated((3 * PI)/2)
 		"down":
-			speed += 10
 			velocity = Vector2(speed, 0).rotated(PI/2)
 		"up_left":
-			speed += 10
 			velocity = Vector2(speed, 0).rotated((5 * PI) / 4)
 		"up_right":
-			speed += 10
 			velocity = Vector2(speed, 0).rotated((7 * PI) / 4)
 		"down_left":
-			speed += 10
 			velocity = Vector2(speed, 0).rotated((3 * PI) / 4)
 		"down_right":
-			speed += 10
 			velocity = Vector2(speed, 0).rotated(PI/4)
 
 func destroy():
