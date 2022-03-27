@@ -1,6 +1,8 @@
 extends KinematicBody2D
 
 var speed = 150
+var dash_speed = 300
+var dash_duration = 0.3
 var move_dir = Vector2(0, 0)
 var life = 3
 
@@ -9,11 +11,14 @@ var anim_mode = "Idle"
 
 var index
 var p_state
-enum state {DEFAULT, MINIGAME_CONTROL}
+enum state {DEFAULT, MINIGAME_CONTROL, DEAD}
 
 var punching = false
 var punch_dir = Vector2(0,0)
 var checked_stick = false
+
+onready var sprite = $Sprite
+onready var dash = $Dash
 
 func init(index):
 	self.index = index
@@ -21,8 +26,9 @@ func init(index):
 	self.p_state = state.DEFAULT
 
 func _physics_process(delta):
+	var p_speed = dash_speed if dash.is_dashing() else speed
 	if p_state == state.DEFAULT:
-		MovementLoop()
+		MovementLoop(p_speed)
 	
 func _unhandled_input(event):
 	if (!punching) and (Input.is_action_just_pressed("punch_l" + str(index)) || Input.is_action_just_pressed("punch_r" + str(index)) || Input.is_action_just_pressed("punch_u" + str(index)) || Input.is_action_just_pressed("punch_d" + str(index))):
@@ -46,6 +52,9 @@ func _unhandled_input(event):
 		if punch_dir != Vector2(0, 0):
 			print(str(punch_dir))
 			Attack()
+			
+	if (dash.can_dash) and (!dash.is_dashing()) and (Input.is_action_just_pressed("dash" + str(index))):
+		dash.start_dash(dash_duration)
 
 
 func _process(delta):
@@ -53,10 +62,10 @@ func _process(delta):
 		AnimationLoop()
 	
 
-func MovementLoop():
+func MovementLoop(p_speed):
 	move_dir.x = int(Input.is_action_pressed("move_right" + str(index))) - int(Input.is_action_pressed("move_left" + str(index)))
 	move_dir.y = (int(Input.is_action_pressed("move_down" + str(index))) - int(Input.is_action_pressed("move_up" + str(index)))) / float(2)
-	var motion = move_dir.normalized() * speed
+	var motion = move_dir.normalized() * p_speed
 	move_and_slide(motion)
 
 func AnimationLoop():
@@ -118,6 +127,7 @@ func take_damage(damage):
 
 func _on_hurtbox_body_entered(body):
 	if body.is_in_group("Hazard"):
+		if dash.is_dashing(): return
 		take_damage(body.damage)
 		body.destroy()
 

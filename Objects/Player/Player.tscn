@@ -1,8 +1,9 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Objects/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Raw assets/Jester/JesterMoveset.png" type="Texture" id=2]
 [ext_resource path="res://DefaultGodo/Idle_R.tres" type="Animation" id=3]
+[ext_resource path="res://Objects/Player/PlayerDash/Dash.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Dash_L"
@@ -553,9 +554,7 @@ radius = 7.88776
 
 [sub_resource type="CircleShape2D" id=34]
 
-[node name="Player" type="KinematicBody2D" groups=[
-"Player",
-]]
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 2
 script = ExtResource( 1 )
 
@@ -592,10 +591,7 @@ texture = ExtResource( 2 )
 hframes = 54
 frame = 28
 
-[node name="hurtbox" type="Area2D" parent="Sprite" groups=[
-"Player",
-"hurtbox",
-]]
+[node name="hurtbox" type="Area2D" parent="Sprite" groups=["Player", "hurtbox"]]
 position = Vector2( 0.21022, 15.977 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
@@ -609,9 +605,7 @@ position = Vector2( -0.77924, -8.57448 )
 rotation = 1.5708
 shape = SubResource( 26 )
 
-[node name="PunchHitboxLeft" type="Area2D" parent="." groups=[
-"Player_Punch",
-]]
+[node name="PunchHitboxLeft" type="Area2D" parent="." groups=["Player_Punch"]]
 position = Vector2( 4.13671, -0.297302 )
 scale = Vector2( -1.72, 1 )
 collision_layer = 2
@@ -624,9 +618,7 @@ scale = Vector2( 0.790699, 1.44 )
 shape = SubResource( 27 )
 disabled = true
 
-[node name="PunchHitboxRight" type="Area2D" parent="." groups=[
-"Player_Punch",
-]]
+[node name="PunchHitboxRight" type="Area2D" parent="." groups=["Player_Punch"]]
 position = Vector2( -2.70122, -0.445953 )
 scale = Vector2( 1.88, 1 )
 collision_layer = 2
@@ -639,9 +631,7 @@ scale = Vector2( 0.599716, 1.10774 )
 shape = SubResource( 28 )
 disabled = true
 
-[node name="PunchHitboxUp" type="Area2D" parent="." groups=[
-"Player_Punch",
-]]
+[node name="PunchHitboxUp" type="Area2D" parent="." groups=["Player_Punch"]]
 position = Vector2( 0.148651, 25.568 )
 scale = Vector2( 1, 2.12 )
 
@@ -651,9 +641,7 @@ scale = Vector2( 1.10612, 0.500105 )
 shape = SubResource( 29 )
 disabled = true
 
-[node name="PunchHitboxDown" type="Area2D" parent="." groups=[
-"Player_Punch",
-]]
+[node name="PunchHitboxDown" type="Area2D" parent="." groups=["Player_Punch"]]
 position = Vector2( 0, 7.87849 )
 scale = Vector2( 1.06558, 1.89597 )
 
@@ -663,9 +651,7 @@ scale = Vector2( 1, 0.578052 )
 shape = SubResource( 30 )
 disabled = true
 
-[node name="PunchHitboxUpLeft" type="Area2D" parent="." groups=[
-"Player_Punch",
-]]
+[node name="PunchHitboxUpLeft" type="Area2D" parent="." groups=["Player_Punch"]]
 position = Vector2( -10.958, -22.2976 )
 rotation = 0.679988
 scale = Vector2( -1.55625, 1.07237 )
@@ -679,9 +665,7 @@ scale = Vector2( 0.724363, 1.07837 )
 shape = SubResource( 31 )
 disabled = true
 
-[node name="PunchHitboxUpRight" type="Area2D" parent="." groups=[
-"Player_Punch",
-]]
+[node name="PunchHitboxUpRight" type="Area2D" parent="." groups=["Player_Punch"]]
 position = Vector2( 8.06933, -22.7436 )
 rotation = -0.660847
 scale = Vector2( -1.65661, 1.07237 )
@@ -695,9 +679,7 @@ scale = Vector2( 0.644561, 0.942261 )
 shape = SubResource( 32 )
 disabled = true
 
-[node name="PunchHitboxDownLeft" type="Area2D" parent="." groups=[
-"Player_Punch",
-]]
+[node name="PunchHitboxDownLeft" type="Area2D" parent="." groups=["Player_Punch"]]
 position = Vector2( -11.4039, -5.50008 )
 rotation = -0.660847
 scale = Vector2( -1.82856, 1.07237 )
@@ -711,9 +693,7 @@ scale = Vector2( 0.5702, 1.06545 )
 shape = SubResource( 33 )
 disabled = true
 
-[node name="PunchHitboxDownRight" type="Area2D" parent="." groups=[
-"Player_Punch",
-]]
+[node name="PunchHitboxDownRight" type="Area2D" parent="." groups=["Player_Punch"]]
 position = Vector2( 8.06933, -5.64873 )
 rotation = 0.679988
 scale = Vector2( -1.86863, 1.07237 )
@@ -726,6 +706,8 @@ rotation = 2.53518e-06
 scale = Vector2( 0.566904, 0.916473 )
 shape = SubResource( 34 )
 disabled = true
+
+[node name="Dash" parent="." instance=ExtResource( 4 )]
 
 [connection signal="body_entered" from="Sprite/hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_entered" from="PunchHitboxLeft" to="." method="_on_PunchHitbox_body_entered"]
