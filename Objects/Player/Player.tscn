@@ -1,7 +1,7 @@
 [gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Objects/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Raw assets/Jester/JesterMoveset.png" type="Texture" id=2]
+[ext_resource path="res://ObjectScenes/Player/JesterMoveset.png" type="Texture" id=2]
 [ext_resource path="res://DefaultGodo/Idle_R.tres" type="Animation" id=3]
 [ext_resource path="res://Objects/Player/PlayerDash/Dash.tscn" type="PackedScene" id=4]
 
@@ -199,7 +199,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 50, 51, 52, 53 ]
+"values": [ 62, 63, 64, 65 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("PunchHitboxDownLeft/punch_down_l:disabled")
@@ -228,7 +228,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 50, 51, 52, 53 ]
+"values": [ 54, 55, 56, 57 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("PunchHitboxDownRight/punch_down_r:disabled")
@@ -315,24 +315,12 @@ tracks/0/keys = {
 "values": [ 46, 47, 48, 49 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:scale")
+tracks/1/path = NodePath("PunchHitboxUp/punch_up:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("PunchHitboxUp/punch_up:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0, 0.16 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
@@ -353,7 +341,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 46, 47, 48, 49 ]
+"values": [ 66, 67, 68, 69 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("PunchHitboxUpLeft/punch_up_l:disabled")
@@ -382,7 +370,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 46, 47, 48, 49 ]
+"values": [ 58, 59, 60, 61 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("PunchHitboxUpRight/punch_up_r:disabled")
@@ -588,8 +576,8 @@ anims/Run_UR = SubResource( 24 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.21022, -15.977 )
 texture = ExtResource( 2 )
-hframes = 54
-frame = 28
+hframes = 70
+frame = 65
 
 [node name="hurtbox" type="Area2D" parent="Sprite" groups=["Player", "hurtbox"]]
 position = Vector2( 0.21022, 15.977 )

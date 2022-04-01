@@ -1,16 +1,31 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Raw assets/Jester/Jon's shitty placeholders/buzzsaw.png" type="Texture" id=1]
+[ext_resource path="res://Raw assets/Jester/SpinnyBlade.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Hazards and Enemies/SpinnyBlade.gd" type="Script" id=2]
 [ext_resource path="res://SoundEffects/flesh_hit.mp3" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.30274
 
-[node name="SpinnyBlade" type="KinematicBody2D" groups=[
-"Hazard",
-"can_be_deflected",
-]]
+[sub_resource type="Animation" id=2]
+resource_name = "Flying"
+length = 0.6
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[node name="SpinnyBlade" type="KinematicBody2D" groups=["Hazard", "can_be_deflected"]]
 z_index = 1
 collision_layer = 2
 collision_mask = 5
@@ -18,9 +33,14 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+hframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Flying"
+anims/Flying = SubResource( 2 )
