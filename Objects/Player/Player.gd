@@ -54,7 +54,11 @@ func _unhandled_input(event):
 			Attack()
 			
 	if (dash.can_dash) and (!dash.is_dashing()) and (Input.is_action_just_pressed("dash" + str(index))):
-		dash.start_dash(dash_duration)
+		move_dir.x = int(Input.is_action_pressed("move_right" + str(index))) - int(Input.is_action_pressed("move_left" + str(index)))
+		move_dir.y = (int(Input.is_action_pressed("move_down" + str(index))) - int(Input.is_action_pressed("move_up" + str(index)))) / float(2)
+		
+		if (!(move_dir.x == 0 and move_dir.y == 0)):
+			dash.start_dash($Sprite, $Sprite/dash_pos, dash_duration)
 
 
 func _process(delta):
@@ -63,8 +67,9 @@ func _process(delta):
 	
 
 func MovementLoop(p_speed):
-	move_dir.x = int(Input.is_action_pressed("move_right" + str(index))) - int(Input.is_action_pressed("move_left" + str(index)))
-	move_dir.y = (int(Input.is_action_pressed("move_down" + str(index))) - int(Input.is_action_pressed("move_up" + str(index)))) / float(2)
+	if (!dash.is_dashing()):
+		move_dir.x = int(Input.is_action_pressed("move_right" + str(index))) - int(Input.is_action_pressed("move_left" + str(index)))
+		move_dir.y = (int(Input.is_action_pressed("move_down" + str(index))) - int(Input.is_action_pressed("move_up" + str(index)))) / float(2)
 	var motion = move_dir.normalized() * p_speed
 	move_and_slide(motion)
 

@@ -33,6 +33,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite/dash_pos:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.001 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5.78978, -0.0229988 ), Vector2( 5.78978, -0.0229988 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.8
@@ -417,6 +429,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 34, 35, 36, 37 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/dash_pos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 6.78978, -0.0229998 ) ]
+}
 
 [sub_resource type="Animation" id=19]
 resource_name = "Run_DR"
@@ -434,6 +458,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 34, 35, 36, 37 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/dash_pos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -9.21022, 0.977 ) ]
+}
 
 [sub_resource type="Animation" id=20]
 length = 0.4
@@ -449,6 +485,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 26, 27, 28, 29 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/dash_pos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 5.78978, -0.0229988 ) ]
 }
 
 [sub_resource type="Animation" id=21]
@@ -466,6 +514,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 22, 23, 24, 25 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/dash_pos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.001 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -10.2102, -0.0229988 ), Vector2( -9.21022, -0.0229988 ) ]
+}
 
 [sub_resource type="Animation" id=22]
 length = 0.4
@@ -481,6 +541,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 30, 31, 32, 33 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/dash_pos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -0.21022, 10.977 ) ]
 }
 
 [sub_resource type="Animation" id=23]
@@ -499,6 +571,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 30, 31, 32, 33 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/dash_pos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4.78978, 6.977 ) ]
+}
 
 [sub_resource type="Animation" id=24]
 resource_name = "Run_UR"
@@ -515,6 +599,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 30, 31, 32, 33 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite/dash_pos:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -7.21022, 6.977 ) ]
 }
 
 [sub_resource type="CapsuleShape2D" id=25]
@@ -577,7 +673,7 @@ anims/Run_UR = SubResource( 24 )
 position = Vector2( 0.21022, -15.977 )
 texture = ExtResource( 2 )
 hframes = 70
-frame = 65
+frame = 37
 
 [node name="hurtbox" type="Area2D" parent="Sprite" groups=["Player", "hurtbox"]]
 position = Vector2( 0.21022, 15.977 )
@@ -587,6 +683,9 @@ scale = Vector2( 1, -1 )
 [node name="hurtbox_shape" type="CollisionShape2D" parent="Sprite/hurtbox"]
 position = Vector2( 1.77017, -14.752 )
 shape = SubResource( 25 )
+
+[node name="dash_pos" type="Node2D" parent="Sprite"]
+position = Vector2( 6.78978, -0.0229998 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.77924, -8.57448 )
@@ -624,7 +723,7 @@ position = Vector2( 0.148651, 25.568 )
 scale = Vector2( 1, 2.12 )
 
 [node name="punch_up" type="CollisionShape2D" parent="PunchHitboxUp"]
-position = Vector2( -1.19887, -24.5726 )
+position = Vector2( -0.1487, -24.7962 )
 scale = Vector2( 1.10612, 0.500105 )
 shape = SubResource( 29 )
 disabled = true
