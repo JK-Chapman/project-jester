@@ -3,9 +3,9 @@ extends Node2D
 
 onready var duration_timer = $DurationTimer
 onready var ghost_timer = $GhostTimer
-const dash_delay = 2
+const dash_delay = 1
 var can_dash = true
-var ghost_scene = preload("res://Objects/Player/PlayerDash/DashGhost.tscn")
+var ghost_scene = preload("res://Objects/Player_dashpunch/PlayerDash/DashGhost.tscn")
 var sprite
 var pos
 

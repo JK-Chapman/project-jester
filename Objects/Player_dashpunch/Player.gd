@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 var speed = 150
-var dash_speed = 300
-var dash_duration = 0.3
+var dash_speed = 400
+var dash_duration = 0.1
 var move_dir = Vector2(0, 0)
 var life = 3
 
@@ -23,12 +23,10 @@ onready var dash = $Dash
 func init(index):
 	self.index = index
 	self.set_name("Player" + str(index))
-	self.p_state = state.DEFAULT
 
 func _physics_process(delta):
 	var p_speed = dash_speed if dash.is_dashing() else speed
-	if p_state == state.DEFAULT:
-		MovementLoop(p_speed)
+	MovementLoop(p_speed)
 	
 func _unhandled_input(event):
 	if (!punching) and (Input.is_action_just_pressed("punch_l" + str(index)) || Input.is_action_just_pressed("punch_r" + str(index)) || Input.is_action_just_pressed("punch_u" + str(index)) || Input.is_action_just_pressed("punch_d" + str(index))):
@@ -62,8 +60,7 @@ func _unhandled_input(event):
 
 
 func _process(delta):
-	if p_state == state.DEFAULT:
-		AnimationLoop()
+	AnimationLoop()
 	
 
 func MovementLoop(p_speed):

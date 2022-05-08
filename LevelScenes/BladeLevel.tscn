@@ -4,7 +4,7 @@
 [ext_resource path="res://Tilemaps/ObjectTilemap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tilemaps/WallsTilemap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Cameras/ZoomCam.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Player/PlayerSpawn.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/PlayerSpawn.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Raw assets/Jester/Banner.png" type="Texture" id=6]
 [ext_resource path="res://Objects/Hazards and Enemies/MagicSpinnyBladeShooter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Hazards and Enemies/MagicSpinnyBladeShooter.gd" type="Script" id=8]
