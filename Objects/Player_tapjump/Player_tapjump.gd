@@ -45,7 +45,7 @@ func _process(delta):
 
 func AnimationLoop():
 	var animation
-	anim_mode = "Idle"
+	anim_mode = "Fall"
 	
 	match move_dir:
 		Vector2(-1, 0):

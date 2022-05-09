@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Raw assets/Jester/SpinnyBlade.png" type="Texture" id=1]
+[ext_resource path="res://Raw assets/AnimationSheets/SpinnyBlade.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Hazards and Enemies/SpinnyBlade.gd" type="Script" id=2]
 [ext_resource path="res://SoundEffects/flesh_hit.mp3" type="AudioStream" id=3]
 

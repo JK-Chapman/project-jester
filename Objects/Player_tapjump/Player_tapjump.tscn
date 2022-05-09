@@ -1,13 +1,12 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://DefaultGodo/Idle_R.tres" type="Animation" id=1]
-[ext_resource path="res://ObjectScenes/Player/JesterMoveset.png" type="Texture" id=2]
+[ext_resource path="res://Raw assets/AnimationSheets/JesterBroom.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player_tapjump/Player_tapjump.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Dash_L"
-length = 0.6
-step = 0.025
+[sub_resource type="Animation" id=20]
+resource_name = "Fall_L"
+length = 0.5
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -15,22 +14,27 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 26, 27, 26, 27, 26, 28 ]
+"values": [ 0, 1, 2, 3, 4 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite/hurtbox/hurtbox_shape:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.575 ),
-"transitions": PoolRealArray( 1, 1 ),
+
+[sub_resource type="Animation" id=21]
+resource_name = "Fall_R"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ true, false ]
+"values": [ 5, 6, 7, 8, 9 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -50,244 +54,6 @@ tracks/0/keys = {
 "values": [ 18, 19, 20, 21 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Idle_DL"
-length = 0.8
-loop = true
-step = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 18, 19, 20, 21 ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "Idle_DR"
-length = 0.8
-loop = true
-step = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 18, 19, 20, 21 ]
-}
-
-[sub_resource type="Animation" id=5]
-length = 0.8
-loop = true
-step = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 10, 11, 12, 13 ]
-}
-
-[sub_resource type="Animation" id=6]
-length = 0.8
-loop = true
-step = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 14, 15, 16, 17 ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "Idle_UL"
-length = 0.8
-loop = true
-step = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 14, 15, 16, 17 ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "Idle_UR"
-length = 0.8
-loop = true
-step = 0.2
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 14, 15, 16, 17 ]
-}
-
-[sub_resource type="Animation" id=9]
-length = 0.5
-step = 0.08
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 50, 51, 52, 53 ]
-}
-
-[sub_resource type="Animation" id=10]
-resource_name = "Punch_DL"
-length = 0.5
-step = 0.08
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 62, 63, 64, 65 ]
-}
-
-[sub_resource type="Animation" id=11]
-resource_name = "Punch_DR"
-length = 0.5
-step = 0.08
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 54, 55, 56, 57 ]
-}
-
-[sub_resource type="Animation" id=12]
-length = 0.5
-step = 0.08
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 42, 43, 44, 45 ]
-}
-
-[sub_resource type="Animation" id=13]
-length = 0.5
-step = 0.08
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 38, 39, 40, 41 ]
-}
-
-[sub_resource type="Animation" id=14]
-length = 0.5
-step = 0.08
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 46, 47, 48, 49 ]
-}
-
-[sub_resource type="Animation" id=15]
-resource_name = "Punch_UL"
-length = 0.5
-step = 0.08
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 66, 67, 68, 69 ]
-}
-
-[sub_resource type="Animation" id=16]
-resource_name = "Punch_UR"
-length = 0.5
-step = 0.08
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.08, 0.16, 0.32 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 58, 59, 60, 61 ]
-}
-
 [sub_resource type="Animation" id=17]
 length = 0.4
 loop = true
@@ -304,107 +70,7 @@ tracks/0/keys = {
 "values": [ 34, 35, 36, 37 ]
 }
 
-[sub_resource type="Animation" id=18]
-resource_name = "Run_DL"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 34, 35, 36, 37 ]
-}
-
-[sub_resource type="Animation" id=19]
-resource_name = "Run_DR"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 34, 35, 36, 37 ]
-}
-
-[sub_resource type="Animation" id=20]
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 26, 27, 28, 29 ]
-}
-
-[sub_resource type="Animation" id=21]
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 22, 23, 24, 25 ]
-}
-
 [sub_resource type="Animation" id=22]
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 30, 31, 32, 33 ]
-}
-
-[sub_resource type="Animation" id=23]
-resource_name = "Run_UL"
-length = 0.4
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 30, 31, 32, 33 ]
-}
-
-[sub_resource type="Animation" id=24]
-resource_name = "Run_UR"
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -437,36 +103,16 @@ collision_layer = 2
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Dash_L = SubResource( 1 )
+anims/Fall_L = SubResource( 20 )
+anims/Fall_R = SubResource( 21 )
 anims/Idle_D = SubResource( 2 )
-anims/Idle_DL = SubResource( 3 )
-anims/Idle_DR = SubResource( 4 )
-anims/Idle_L = SubResource( 5 )
-anims/Idle_R = ExtResource( 1 )
-anims/Idle_U = SubResource( 6 )
-anims/Idle_UL = SubResource( 7 )
-anims/Idle_UR = SubResource( 8 )
-anims/Punch_D = SubResource( 9 )
-anims/Punch_DL = SubResource( 10 )
-anims/Punch_DR = SubResource( 11 )
-anims/Punch_L = SubResource( 12 )
-anims/Punch_R = SubResource( 13 )
-anims/Punch_U = SubResource( 14 )
-anims/Punch_UL = SubResource( 15 )
-anims/Punch_UR = SubResource( 16 )
 anims/Run_D = SubResource( 17 )
-anims/Run_DL = SubResource( 18 )
-anims/Run_DR = SubResource( 19 )
-anims/Run_L = SubResource( 20 )
-anims/Run_R = SubResource( 21 )
 anims/Run_U = SubResource( 22 )
-anims/Run_UL = SubResource( 23 )
-anims/Run_UR = SubResource( 24 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.21022, -15.977 )
-texture = ExtResource( 2 )
-hframes = 70
+texture = ExtResource( 1 )
+hframes = 10
 frame = 9
 
 [node name="hurtbox" type="Area2D" parent="Sprite" groups=["Player", "hurtbox"]]
@@ -478,6 +124,7 @@ scale = Vector2( 1, -1 )
 position = Vector2( 1.42038, -23 )
 rotation = -1.5708
 shape = SubResource( 25 )
+disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.77924, -8.57448 )
