@@ -6,6 +6,7 @@ const JUMP = 500
 const MAXFALLSPEED = 200
 const GRAVITY = 30
 var move_dir = Vector2(0, 0)
+var motion = Vector2(0, 0)
 var life = 3
 var on_floor = false
 
@@ -24,18 +25,21 @@ func init(index):
 	self.set_name("Player" + str(index))
 
 func _physics_process(delta):
-	move_dir.y += GRAVITY
+	motion.y += GRAVITY
 	
 	if Input.is_action_pressed("move_right" + str(index)):
-		move_dir.x = speed
+		motion.x = speed
 	if Input.is_action_pressed("move_left" + str(index)):
-		move_dir.x = -speed
+		motion.x = -speed
 	if Input.is_action_just_pressed("jump_" + str(index)):
-		move_dir.y = -JUMP
+		motion.y = -JUMP
+		
+	move_dir.x = int(Input.is_action_pressed("move_right" + str(index))) - int(Input.is_action_pressed("move_left" + str(index)))
+	move_dir.y = (int(Input.is_action_pressed("move_down" + str(index))) - int(Input.is_action_pressed("move_up" + str(index)))) / float(2)
 	
-	move_and_slide(move_dir, Vector2.UP)
+	move_and_slide(motion, Vector2.UP)
 	
-	move_dir.x = lerp(move_dir.x,0,0.2)
+	motion.x = lerp(motion.x,0,0.2)
 	
 func _unhandled_input(event):
 	pass
