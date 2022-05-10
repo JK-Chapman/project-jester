@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Raw assets/AnimationSheets/JesterBroom.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Player_tapjump/Player_tapjump.gd" type="Script" id=3]
@@ -87,16 +87,12 @@ tracks/0/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=25]
-radius = 1.25327
-height = 11.9767
+radius = 1.4286
+height = 16.0
 
 [sub_resource type="CapsuleShape2D" id=26]
 radius = 1.54249
 height = 8.93091
-
-[sub_resource type="CapsuleShape2D" id=27]
-radius = 1.0
-height = 6.0
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 collision_layer = 2
@@ -113,30 +109,27 @@ anims/Run_U = SubResource( 22 )
 position = Vector2( 0.21022, -15.977 )
 texture = ExtResource( 1 )
 hframes = 10
-frame = 9
+frame = 5
 
-[node name="hurtbox" type="Area2D" parent="Sprite" groups=["Player", "hurtbox"]]
-position = Vector2( 0.21022, 15.977 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
+[node name="StunTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
-[node name="hurtbox_shape" type="CollisionShape2D" parent="Sprite/hurtbox"]
-position = Vector2( 1.42038, -23 )
+[node name="player_bounce" type="KinematicBody2D" parent="." groups=["player"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="bounce_shape" type="CollisionShape2D" parent="player_bounce"]
+position = Vector2( 0.58, -22 )
 rotation = -1.5708
+scale = Vector2( 0.88, 1 )
 shape = SubResource( 25 )
-disabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="player_box" type="CollisionShape2D" parent="."]
 position = Vector2( -0.77924, -8.57448 )
 rotation = 1.5708
 shape = SubResource( 26 )
 
-[node name="player_stomp_box" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_stomp_box"]
-position = Vector2( -1, -7 )
-rotation = -1.5708
-scale = Vector2( 1, 1.2 )
-shape = SubResource( 27 )
-
-[connection signal="body_entered" from="Sprite/hurtbox" to="." method="_on_hurtbox_body_entered"]
+[node name="ImmuneTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

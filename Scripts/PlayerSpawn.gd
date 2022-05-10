@@ -23,7 +23,7 @@ func _ready():
 			player_inst.position.x = self.position.x
 			player_inst.position.y = self.position.y
 			camera.add_target(player_inst)
-			get_parent().call_deferred("add_child", player_inst)
+			get_parent().get_parent().call_deferred("add_child", player_inst)
 			GameManager.player_dicts[i[0]] = [i[0], 1]
 			return
 

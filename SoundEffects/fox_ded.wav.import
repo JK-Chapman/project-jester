@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fox_ded.wav-d3d4cac2809888eb46ccfffea0a528d3.sample"
+
+[deps]
+
+source_file="res://SoundEffects/fox_ded.wav"
+dest_files=[ "res://.import/fox_ded.wav-d3d4cac2809888eb46ccfffea0a528d3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
