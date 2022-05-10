@@ -7,7 +7,6 @@ const MAX_GRAV = 200
 
 onready var stun_timer = $StunTimer
 onready var immune_timer = $ImmuneTimer
-onready var stomp_box = get_node("player_stomp_box/player_stomp_collision")
 onready var player_box = $player_box
 
 
@@ -18,7 +17,6 @@ var life = 3
 var on_floor = false
 var UP = Vector2(0, -1)
 var bounce = false
-var camera
 var hit_sound_fx = load("res://SoundEffects/ripoff_smash.wav")
 var ko_sound_fx = load("res://SoundEffects/melee_bat.wav")
 
@@ -30,6 +28,7 @@ var index
 var p_state
 enum state {DEFAULT, MINIGAME_CONTROL, DEAD}
 var checked_stick = false
+var assigned_spawn
 
 onready var sprite = $Sprite
 
@@ -76,7 +75,7 @@ func stun():
 		immune_timer.start()
 		return
 	elif is_stunned() and !is_immune():
-		camera = get_parent().get_node("ZoomCam")
+		var camera = get_parent().get_node("ZoomCam")
 		camera.remove_target(self)
 		GameManager.play_sound(ko_sound_fx)
 		queue_free()
@@ -108,14 +107,15 @@ func take_damage(damage):
 	life -= damage
 	print("DEBUG: Player has taken damage and now has " + str(life) + " life.")
 
-func _on_hurtbox_body_entered(body):
-	if body.is_in_group("Hazard"):
-		take_damage(body.damage)
-		body.destroy()
-		
-		
 func is_stunned():
 	return !stun_timer.is_stopped()
 	
 func is_immune():
 	return !immune_timer.is_stopped()
+
+func _on_hurtbox_area_entered(area):
+	if area.is_in_group("hazard"):
+		var camera = get_parent().get_node("ZoomCam")
+		camera.remove_target(self)
+		GameManager.play_sound(ko_sound_fx)
+		queue_free()

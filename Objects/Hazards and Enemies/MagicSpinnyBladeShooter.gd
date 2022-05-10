@@ -24,4 +24,3 @@ func _on_BladeTimer_timeout():
 	var blade_inst = blade.instance()
 	blade_inst.start($Pivot/Sprite/BladeSpawn.global_position, $Pivot.rotation)
 	get_parent().add_child(blade_inst)
-	pass # Replace with function body.
