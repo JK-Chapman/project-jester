@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/solo_trimmed.mp3-3b50fcf3e54300b342c20aa1c6f27410.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/solo_trimmed.mp3"
+dest_files=[ "res://.import/solo_trimmed.mp3-3b50fcf3e54300b342c20aa1c6f27410.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

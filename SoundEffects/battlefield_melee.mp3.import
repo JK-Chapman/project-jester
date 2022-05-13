@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/battlefield_melee.mp3-eb5b275eac706edb4e6bc5435dcc3ab3.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/battlefield_melee.mp3"
+dest_files=[ "res://.import/battlefield_melee.mp3-eb5b275eac706edb4e6bc5435dcc3ab3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

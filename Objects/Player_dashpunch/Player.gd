@@ -16,19 +16,27 @@ enum state {DEFAULT, MINIGAME_CONTROL, DEAD}
 var punching = false
 var punch_dir = Vector2(0,0)
 var checked_stick = false
+var death_start_time = OS.get_ticks_msec()
+var is_dead = false
+var ko_sound_fx = preload("res://SoundEffects/melee_bat.wav")
+var hit_sound_fx = preload("res://SoundEffects/flesh_hit.mp3")
 
 onready var sprite = $Sprite
 onready var dash = $Dash
+onready var minigame_manager = get_parent().get_node("MinigameManager")
 
 func init(index):
 	self.index = index
 	self.set_name("Player" + str(index))
+	get_node("Sprite").self_modulate = GameManager.player_dicts[index][2]
 
 func _physics_process(delta):
 	var p_speed = dash_speed if dash.is_dashing() else speed
 	MovementLoop(p_speed)
 	
 func _unhandled_input(event):
+	if is_dead or minigame_manager.players_stopped:
+		return
 	if (!punching) and (Input.is_action_just_pressed("punch_l" + str(index)) || Input.is_action_just_pressed("punch_r" + str(index)) || Input.is_action_just_pressed("punch_u" + str(index)) || Input.is_action_just_pressed("punch_d" + str(index))):
 		punching = true
 		var x_axis = Input.get_joy_axis(index, JOY_AXIS_2)
@@ -64,9 +72,14 @@ func _process(delta):
 	
 
 func MovementLoop(p_speed):
+	if is_dead:
+		return
 	if (!dash.is_dashing()):
 		move_dir.x = int(Input.is_action_pressed("move_right" + str(index))) - int(Input.is_action_pressed("move_left" + str(index)))
 		move_dir.y = (int(Input.is_action_pressed("move_down" + str(index))) - int(Input.is_action_pressed("move_up" + str(index)))) / float(2)
+	
+	if minigame_manager.players_stopped:
+		return
 	var motion = move_dir.normalized() * p_speed
 	move_and_slide(motion)
 
@@ -125,7 +138,25 @@ func Attack():
 	
 func take_damage(damage):
 	life -= damage
+	if life == 0:
+		kill_player()
+		pass
 	print("DEBUG: Player has taken damage and now has " + str(life) + " life.")
+	
+func kill_player():
+	life = 0
+	if OS.get_ticks_msec() - death_start_time < 100:
+		return
+	death_start_time = OS.get_ticks_msec()
+	is_dead = true
+	var camera = get_parent().get_node("ZoomCam")
+	camera.remove_target(self)
+	GameManager.play_sound(ko_sound_fx)
+	minigame_manager.alert_player_out_ffa(index)
+
+func revive():
+	life = 3
+	is_dead = false
 
 func _on_hurtbox_body_entered(body):
 	if body.is_in_group("Hazard"):
@@ -171,3 +202,11 @@ func _on_PunchHitboxDownLeft_body_entered(body):
 func _on_PunchHitboxDownRight_body_entered(body):
 	if body.is_in_group("can_be_deflected"):
 		body.deflect("down_right")
+
+
+func _on_hurtbox_area_entered(area):
+	if area.is_in_group("Hazard"):
+		if dash.is_dashing(): return
+		take_damage(area.get_parent().damage)
+		area.get_parent().queue_free()
+		GameManager.play_sound(hit_sound_fx)

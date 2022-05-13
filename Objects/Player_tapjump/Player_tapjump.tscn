@@ -113,7 +113,6 @@ anims/Run_U = SubResource( 22 )
 position = Vector2( 0.21022, -15.977 )
 texture = ExtResource( 1 )
 hframes = 10
-frame = 5
 
 [node name="StunTimer" type="Timer" parent="."]
 wait_time = 2.0

@@ -796,6 +796,7 @@ disabled = true
 
 [node name="Dash" parent="." instance=ExtResource( 4 )]
 
+[connection signal="area_entered" from="Sprite/hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Sprite/hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_entered" from="PunchHitboxLeft" to="." method="_on_PunchHitbox_body_entered"]
 [connection signal="body_entered" from="PunchHitboxRight" to="." method="_on_PunchHitboxRight_body_entered"]

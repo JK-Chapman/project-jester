@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/melee_dreamland.mp3-cd17ad0deb62303b6c85f732bb464b29.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/melee_dreamland.mp3"
+dest_files=[ "res://.import/melee_dreamland.mp3-cd17ad0deb62303b6c85f732bb464b29.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
