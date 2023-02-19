@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=5 format=2]
 
-[ext_resource path="res://Raw assets/Jester/Pots.png" type="Texture" id=1]
+[ext_resource path="res://ArtAssets/Sprites/Pots.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 4.33328, 7.57855, 10.3911, 7.52447, 10.4452, 14.3395, 4.33328, 14.3395 )

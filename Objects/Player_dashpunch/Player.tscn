@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Objects/Player_dashpunch/Player.gd" type="Script" id=1]
 [ext_resource path="res://DefaultGodo/Idle_R.tres" type="Animation" id=2]
-[ext_resource path="res://ObjectScenes/Player/JesterMoveset.png" type="Texture" id=3]
+[ext_resource path="res://ArtAssets/AnimationSheets/JesterMoveset.png" type="Texture" id=3]
 [ext_resource path="res://Objects/Player_dashpunch/PlayerDash/Dash.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ArtAssets/Lighting/light.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Dash_L"
@@ -673,7 +674,7 @@ anims/Run_UR = SubResource( 24 )
 position = Vector2( 0.21022, -15.977 )
 texture = ExtResource( 3 )
 hframes = 70
-frame = 21
+frame = 10
 
 [node name="hurtbox" type="Area2D" parent="Sprite" groups=["Player", "hurtbox"]]
 position = Vector2( 0.21022, 15.977 )
@@ -700,7 +701,6 @@ collision_mask = 2
 
 [node name="punch_left" type="CollisionShape2D" parent="PunchHitboxLeft"]
 position = Vector2( 10.5498, -13.1803 )
-rotation = 2.53518e-06
 scale = Vector2( 0.790699, 1.44 )
 shape = SubResource( 27 )
 disabled = true
@@ -713,7 +713,6 @@ collision_mask = 2
 
 [node name="punch_right" type="CollisionShape2D" parent="PunchHitboxRight"]
 position = Vector2( 8.49747, -13.1941 )
-rotation = 2.53518e-06
 scale = Vector2( 0.599716, 1.10774 )
 shape = SubResource( 28 )
 disabled = true
@@ -747,7 +746,6 @@ collision_mask = 2
 
 [node name="punch_up_l" type="CollisionShape2D" parent="PunchHitboxUpLeft"]
 position = Vector2( 2.03737, -1.51118 )
-rotation = 2.53518e-06
 scale = Vector2( 0.724363, 1.07837 )
 shape = SubResource( 31 )
 disabled = true
@@ -761,7 +759,6 @@ collision_mask = 2
 
 [node name="punch_up_r" type="CollisionShape2D" parent="PunchHitboxUpRight"]
 position = Vector2( -1.83113, -0.451097 )
-rotation = 2.53518e-06
 scale = Vector2( 0.644561, 0.942261 )
 shape = SubResource( 32 )
 disabled = true
@@ -775,7 +772,6 @@ collision_mask = 2
 
 [node name="punch_down_l" type="CollisionShape2D" parent="PunchHitboxDownLeft"]
 position = Vector2( 0.422696, 1.90555 )
-rotation = 2.53518e-06
 scale = Vector2( 0.5702, 1.06545 )
 shape = SubResource( 33 )
 disabled = true
@@ -789,12 +785,21 @@ collision_mask = 2
 
 [node name="punch_down_r" type="CollisionShape2D" parent="PunchHitboxDownRight"]
 position = Vector2( -0.581843, 1.3866 )
-rotation = 2.53518e-06
 scale = Vector2( 0.566904, 0.916473 )
 shape = SubResource( 34 )
 disabled = true
 
 [node name="Dash" parent="." instance=ExtResource( 4 )]
+
+[node name="Light" type="Light2D" parent="."]
+position = Vector2( -1.11362, -14.6998 )
+scale = Vector2( 0.23323, 0.221432 )
+texture = ExtResource( 5 )
+energy = 0.5
+shadow_enabled = true
+shadow_gradient_length = 0.1
+shadow_filter = 3
+shadow_filter_smooth = 1.0
 
 [connection signal="area_entered" from="Sprite/hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Sprite/hurtbox" to="." method="_on_hurtbox_body_entered"]

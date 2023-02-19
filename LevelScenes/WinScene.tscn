@@ -1,12 +1,13 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Raw assets/Jester/Jon's shitty placeholders/falcon.jpg" type="Texture" id=1]
-[ext_resource path="res://Raw assets/AnimationSheets/JesterBroom.png" type="Texture" id=2]
-[ext_resource path="res://Raw assets/Jester/Jon's shitty placeholders/glasses.png" type="Texture" id=3]
-[ext_resource path="res://Raw assets/Jester/Jon's shitty placeholders/space.jpg" type="Texture" id=4]
+[ext_resource path="res://ArtAssets/Sprites/Placeholder/falcon.jpg" type="Texture" id=1]
+[ext_resource path="res://ArtAssets/AnimationSheets/JesterBroom.png" type="Texture" id=2]
+[ext_resource path="res://ArtAssets/Sprites/Placeholder/glasses.png" type="Texture" id=3]
+[ext_resource path="res://ArtAssets/Sprites/Placeholder/space.jpg" type="Texture" id=4]
 [ext_resource path="res://LevelScenes/LobbyBtn.gd" type="Script" id=5]
 [ext_resource path="res://SoundEffects/solo_trimmed.mp3" type="AudioStream" id=6]
-[ext_resource path="res://Raw assets/Jester/Jon's shitty placeholders/blaster.jpg" type="Texture" id=7]
+[ext_resource path="res://ArtAssets/Sprites/Placeholder/blaster.jpg" type="Texture" id=7]
+
 
 [node name="Node2D" type="Node2D"]
 

@@ -118,6 +118,17 @@ func AnimationLoop():
 			anim_dir = "L"
 		Vector2(1, 0):
 			anim_dir = "R"
+		Vector2(-1, -1):
+			anim_dir = "L"
+		Vector2(1, -1):
+			anim_dir = "R"
+		Vector2(-1, 1):
+			anim_mode = "Up"
+			anim_dir = "L"
+		Vector2(1, 1):
+			anim_mode = "Up"
+			anim_dir = "R"
+	
 	
 	animation = anim_mode + "_" + anim_dir
 	
