@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-const JUMP = 350
-const GRAVITY = 30
-const MAX_GRAV = 200
+const JUMP = 325
+const GRAVITY = 25
+const MAX_GRAV = 190
 
 onready var stun_timer = $StunTimer
 onready var immune_timer = $ImmuneTimer
@@ -10,7 +10,7 @@ onready var player_box = $player_box
 onready var minigame_manager = get_parent().get_node("MinigameManager")
 
 
-var speed = 125
+var speed = 135
 var move_dir = Vector2(0, 0)
 var motion = Vector2(0, 0)
 var life = 1

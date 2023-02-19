@@ -77,7 +77,7 @@ script = ExtResource( 8 )
 position = Vector2( -0.600159, -18.7328 )
 
 [node name="BladeTimer" type="Timer" parent="BladeSpawner"]
-wait_time = 1.5
+wait_time = 3.0
 
 [node name="MinigameManager" type="Node2D" parent="."]
 script = ExtResource( 9 )

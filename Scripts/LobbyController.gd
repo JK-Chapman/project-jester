@@ -87,7 +87,7 @@ func _on_StartZone_body_entered(body):
 		num_players_ready += 1
 		print("DEBUG: num_players_ready is " + str(num_players_ready))
 		if num_players_ready == GameManager.player_dicts.keys().size():
-			GameManager.load_random_level("AllLevels")
+			GameManager.load_random_level("DebugBladeLevel")
 
 
 func _on_StartZone_body_exited(body):

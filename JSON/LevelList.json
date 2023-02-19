@@ -1,3 +1,5 @@
 {
-    "AllLevels": [["JesterJoust.tscn", "tapjump"], ["BladeLevel.tscn", "dashpunch"]]
+    "AllLevels": [["JesterJoust.tscn", "tapjump"], ["BladeLevel.tscn", "dashpunch"]],
+    "DebugBladeLevel": [["BladeLevel.tscn", "dashpunch"]],
+    "DebugJoust": [["JesterJoust.tscn", "tapjump"]]
 }

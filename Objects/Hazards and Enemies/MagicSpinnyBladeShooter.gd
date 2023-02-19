@@ -1,7 +1,8 @@
 extends Node2D
 
 export var rotation_speed = PI + 3
-var blade = preload("res://Objects/Hazards and Enemies/SpinnyBlade.tscn")
+export var max_blades = 1
+var blade = preload("res://Objects/Hazards and Enemies/TrackingSpinnyBlade.tscn")
 onready var minigame_manager = get_parent().get_node("MinigameManager")
 var start_blades = false
 # Declare member variables here. Examples:
@@ -27,6 +28,10 @@ func _ready():
 
 func _on_BladeTimer_timeout():
 	print("Blade spawning")
+	if (get_parent().get_node("Blades").get_children().size() < max_blades):
+		spawn_blade()
+	
+func spawn_blade():
 	var blade_inst = blade.instance()
 	blade_inst.start($Pivot/Sprite/BladeSpawn.global_position, $Pivot.rotation)
 	get_parent().get_node("Blades").add_child(blade_inst)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Objects/GameControllers/LobbyController.tscn" type="PackedScene" id=1]
 [ext_resource path="res://DefaultGodo/icon.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Tilemaps/ObjectTilemap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tilemaps/WallsTilemap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Hazards and Enemies/SpinnyBlade.tscn" type="PackedScene" id=7]
-[ext_resource path="res://SoundEffects/hotel_music_cropped.mp3" type="AudioStream" id=8]
 [ext_resource path="res://LevelScenes/Lobby_MM.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
