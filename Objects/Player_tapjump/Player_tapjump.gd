@@ -54,7 +54,13 @@ func _physics_process(delta):
 				motion.y = -JUMP
 		
 		move_dir.x = int(Input.is_action_pressed("move_right" + str(index))) - int(Input.is_action_pressed("move_left" + str(index)))
-		move_dir.y = (int(Input.is_action_pressed("move_down" + str(index))) - int(Input.is_action_pressed("move_up" + str(index)))) / float(2)
+		
+		if (motion.y > 0):
+			move_dir.y = 1
+		elif (motion.y < 0):
+			move_dir.y = -1
+		else:
+			move_dir.y = 0
 	
 	if motion.y < 0:
 		self.set_collision_layer_bit(1, false)
